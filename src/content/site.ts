@@ -23,7 +23,7 @@ export const site: SiteContent = {
   // TODO(owner): confirm this is the address you want recruiters to reach.
   email: 'aoconnell2027@gmail.com',
   // TODO(owner): drop a resume PDF in /public and point this at it (e.g. '/Ayden-OConnell-Resume.pdf').
-  resumeUrl: '/resume.pdf',
+  resumeUrl: '/public/resumewebsite.pdf',
 
   socials: [
     {
