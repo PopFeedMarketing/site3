@@ -21,7 +21,7 @@ export const site: SiteContent = {
   ],
 
   // TODO(owner): confirm this is the address you want recruiters to reach.
-  email: 'aydenchristopheroconnell@gmail.com',
+  email: 'aoconnell2027@gmail.com',
   // TODO(owner): drop a resume PDF in /public and point this at it (e.g. '/Ayden-OConnell-Resume.pdf').
   resumeUrl: '/resume.pdf',
 
@@ -29,14 +29,14 @@ export const site: SiteContent = {
     {
       label: 'Email',
       // TODO(owner): keep in sync with `email` above.
-      url: 'mailto:aydenchristopheroconnell@gmail.com',
-      handle: 'aydenchristopheroconnell@gmail.com',
+      url: 'mailto:aoconnell2027@gmail.com',
+      handle: 'aoconnell2027@gmail.com',
     },
     {
       label: 'GitHub',
       // TODO(owner): replace with your personal GitHub profile URL.
-      url: 'https://github.com/PopFeedMarketing',
-      handle: '@PopFeedMarketing',
+      url: 'https://github.com/aaydnn',
+      handle: '@aaydnn',
     },
     {
       label: 'LinkedIn',
