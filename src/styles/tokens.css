@@ -1,0 +1,64 @@
+/* ==========================================================================
+   DESIGN TOKENS — single source of truth for the visual system.
+   To re-theme the entire site, change values here and nowhere else.
+   Variable NAMES are frozen (Phase 1 contract); values are the design.
+
+   Temperature: deep petrol / cool graphite near-black. Signature accent is a
+   teal ("petrol glow") — deliberately NOT PopFeed indigo/violet, NOT a single
+   acid-green, NOT warm-cream/terracotta.
+   ========================================================================== */
+
+:root {
+  /* --- Base surfaces: one base, 3 elevation steps (cool graphite cast) --- */
+  --bg-base: #080b0f;
+  --bg-elev-1: #0d1218;
+  --bg-elev-2: #121a22;
+  --bg-elev-3: #18232d;
+
+  /* --- Text --- */
+  --text-primary: #eaf2f5;
+  --text-secondary: #a7b7c0;
+  --text-muted: #6b7d88;
+
+  /* --- Accents (cool petrol family; accent-1 is the signature) --- */
+  --accent-1: #35e0c8; /* teal — signature glow */
+  --accent-2: #4aa8ff; /* electric petrol-blue */
+  --accent-3: #7c8cff; /* cool periwinkle (used sparingly) */
+
+  /* RGB channels for alpha compositing (glows, borders, focus rings) */
+  --accent-1-rgb: 53, 224, 200;
+  --accent-2-rgb: 74, 168, 255;
+  --accent-3-rgb: 124, 140, 255;
+
+  /* --- Borders / hairlines --- */
+  --border-subtle: rgba(167, 183, 192, 0.1);
+  --border-strong: rgba(167, 183, 192, 0.18);
+
+  /* --- Radii --- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* --- Shadows / elevation --- */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.4), 0 24px 56px -20px rgba(0, 0, 0, 0.7);
+  --glow-accent: 0 0 0 1px rgba(var(--accent-1-rgb), 0.35),
+    0 8px 40px -8px rgba(var(--accent-1-rgb), 0.28);
+
+  /* --- Motion --- */
+  --dur-fast: 150ms;
+  --dur-base: 240ms;
+  --dur-slow: 350ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* --- Typography --- */
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* --- Layout rhythm --- */
+  --content-max: 1120px;
+  --section-py: clamp(4.5rem, 10vw, 8rem);
+  --gutter: clamp(1.25rem, 5vw, 2.5rem);
+}

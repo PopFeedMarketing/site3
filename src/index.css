@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+@import './styles/tokens.css';
+
+/* Map design tokens into Tailwind v4's theme so utilities can reference them. */
+@theme inline {
+  --color-base: var(--bg-base);
+  --color-elev-1: var(--bg-elev-1);
+  --color-elev-2: var(--bg-elev-2);
+  --color-elev-3: var(--bg-elev-3);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Global base
+   -------------------------------------------------------------------------- */
+* {
+  border-color: var(--border-subtle);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* clears the fixed nav on anchor jumps */
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'ss01', 'cv01';
+  overflow-x: hidden;
+}
+
+/* Ambient page backdrop — a very quiet cool gradient wash so the near-black
+   base has depth without any per-component glow soup. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 40% at 50% -10%, rgba(var(--accent-1-rgb), 0.08), transparent 70%),
+    radial-gradient(50% 50% at 100% 0%, rgba(var(--accent-2-rgb), 0.05), transparent 60%);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(var(--accent-1-rgb), 0.28);
+  color: var(--text-primary);
+}
+
+/* Visible keyboard focus everywhere; removed for mouse users via :focus-visible */
+:focus-visible {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip link (rendered in App) */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Custom scrollbar to match the cool palette (progressive enhancement) */
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-base);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--bg-elev-3);
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--bg-base);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+  }
+}
+
+/* Utility: the monospace data label look used for tags & eyebrows */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
